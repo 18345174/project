@@ -1,9 +1,16 @@
-.login-container {
+.container {
   padding: 40rpx;
 }
 
 .login-form {
   margin-top: 100rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 60rpx;
 }
 
 .form-item {
