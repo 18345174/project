@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="header">
+    <view class="title">商品管理</view>
+    <view class="btn-group">
+      <button class="btn" bindtap="handleOrderManage">订单管理</button>
+      <button class="btn" bindtap="handleCategoryManage">分类管理</button>
+      <button class="btn add-btn" bindtap="addGoods">添加商品</button>
+    </view>
+  </view>
+
+  <view class="goods-list" wx:if="{{!loading}}">
+    <view class="goods-item" wx:for="{{goodsList}}" wx:key="_id">
+      <image src="{{item.image}}" mode="aspectFill" class="goods-image" />
+      <view class="goods-info">
+        <view class="goods-name">{{item.name}}</view>
+        <view class="goods-price">¥{{item.price}}</view>
+        <view class="goods-stock">库存：{{item.stock}}</view>
+      </view>
+      <view class="btn-group">
+        <button class="btn edit-btn" 
+                bindtap="editGoods" 
+                data-id="{{item._id}}">编辑</button>
+        <button class="btn delete-btn" 
+                bindtap="deleteGoods" 
+                data-id="{{item._id}}">删除</button>
+      </view>
+    </view>
+  </view>
+
+  <view wx:else class="loading">加载中...</view>
+</view> 

@@ -1,0 +1,45 @@
+<view class="container">
+  <view class="form">
+    <view class="form-item">
+      <view class="label">分类名称</view>
+      <input 
+        type="text"
+        placeholder="请输入分类名称"
+        value="{{name}}"
+        bindinput="onInput"
+        data-field="name"
+      />
+    </view>
+
+    <view class="form-item">
+      <view class="label">排序</view>
+      <input 
+        type="number"
+        placeholder="请输入排序数字（越小越靠前）"
+        value="{{sort}}"
+        bindinput="onInput"
+        data-field="sort"
+      />
+    </view>
+
+    <view class="form-item">
+      <view class="label">分类图标</view>
+      <view class="icon-upload" bindtap="chooseIcon">
+        <image 
+          wx:if="{{icon}}" 
+          src="{{icon}}" 
+          mode="aspectFit" 
+          class="preview-icon"
+        />
+        <view wx:else class="upload-placeholder">
+          <text class="iconfont icon-add"></text>
+          <text>上传图标</text>
+        </view>
+      </view>
+    </view>
+
+    <button class="submit-btn" bindtap="submitForm">
+      {{isEdit ? '保存修改' : '添加分类'}}
+    </button>
+  </view>
+</view> 

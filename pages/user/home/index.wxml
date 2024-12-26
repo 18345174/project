@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="search-bar">
+    <input 
+      type="text" 
+      placeholder="搜索商品" 
+      value="{{searchValue}}"
+      bindinput="onSearch"
+    />
+  </view>
+
+  <scroll-view class="category-list" scroll-x>
+    <view class="category-item {{currentCategory._id === item._id ? 'active' : ''}}"
+          wx:for="{{categories}}"
+          wx:key="_id"
+          bindtap="switchCategory"
+          data-category="{{item}}">
+      <image wx:if="{{item.icon}}" src="{{item.icon}}" mode="aspectFit" />
+      <text>{{item.name}}</text>
+    </view>
+  </scroll-view>
+
+  <view class="goods-list" wx:if="{{!loading}}">
+    <view class="goods-item" 
+          wx:for="{{goodsList}}" 
+          wx:key="_id"
+          bindtap="goToDetail"
+          data-id="{{item._id}}">
+      <image src="{{item.image}}" mode="aspectFill" />
+      <view class="goods-info">
+        <view class="goods-name">{{item.name}}</view>
+        <view class="goods-price">¥{{item.price}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:else class="loading">加载中...</view>
+</view> 

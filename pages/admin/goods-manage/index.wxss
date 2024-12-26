@@ -1,0 +1,106 @@
+.container {
+  padding: 20rpx;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  margin-bottom: 20rpx;
+}
+
+.title {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.header .btn-group {
+  display: flex;
+  gap: 20rpx;
+}
+
+.header .btn {
+  font-size: 28rpx;
+  padding: 0 30rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+}
+
+.add-btn {
+  background: #1296db;
+  color: #fff;
+}
+
+.goods-list {
+  margin-top: 20rpx;
+}
+
+.goods-item {
+  display: flex;
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.goods-image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+
+.goods-info {
+  flex: 1;
+}
+
+.goods-name {
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+
+.goods-price {
+  color: #e4393c;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.goods-stock {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.goods-item .btn-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20rpx;
+}
+
+.goods-item .btn {
+  font-size: 26rpx;
+  padding: 0 20rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+}
+
+.edit-btn {
+  background: #1296db;
+  color: #fff;
+}
+
+.delete-btn {
+  background: #f5f5f5;
+  color: #666;
+}
+
+.loading {
+  text-align: center;
+  padding: 30rpx;
+  color: #999;
+  font-size: 28rpx;
+} 

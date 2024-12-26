@@ -1,0 +1,71 @@
+<view class="container">
+  <!-- 标签页 -->
+  <view class="tabs">
+    <view class="tab-item {{currentTab === index ? 'active' : ''}}"
+          wx:for="{{tabList}}"
+          wx:key="index"
+          bindtap="switchTab"
+          data-index="{{index}}">
+      {{item}}
+    </view>
+  </view>
+
+  <!-- 订单列表 -->
+  <view class="order-list" wx:if="{{!loading}}">
+    <block wx:if="{{orderList.length > 0}}">
+      <view class="order-item" 
+            wx:for="{{orderList}}" 
+            wx:key="_id"
+            bindtap="goToDetail"
+            data-id="{{item._id}}">
+        <view class="order-header">
+          <text class="order-no">订单号：{{item.orderNo}}</text>
+          <text class="order-status">{{item.statusText}}</text>
+        </view>
+
+        <view class="user-info">
+          <text class="label">买家：</text>
+          <text>{{item.userInfo.nickName}}</text>
+        </view>
+
+        <view class="delivery-info" wx:if="{{item.deliveryType === 'delivery'}}">
+          <text class="label">收货信息：</text>
+          <view>
+            <text>{{item.address.name}} {{item.address.phone}}</text>
+            <view class="address">
+              {{item.address.province}}{{item.address.city}}{{item.address.district}}{{item.address.detail}}
+            </view>
+          </view>
+        </view>
+
+        <view class="goods-list">
+          <view class="goods-item" wx:for="{{item.goods}}" wx:key="id" wx:for-item="goods">
+            <image src="{{goods.image}}" mode="aspectFill" class="goods-image" />
+            <view class="goods-info">
+              <view class="goods-name">{{goods.name}}</view>
+              <view class="goods-price">¥{{goods.price}}</view>
+              <view class="goods-quantity">x{{goods.quantity}}</view>
+            </view>
+          </view>
+        </view>
+
+        <view class="order-footer">
+          <view class="total-price">
+            合计：<text class="price">¥{{item.totalPrice}}</text>
+          </view>
+          <view class="btn-group">
+            <button class="btn ship-btn" 
+                    wx:if="{{item.status === 2}}"
+                    catchtap="handleShip"
+                    data-id="{{item._id}}">发货</button>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <view wx:else class="empty-order">
+      <image src="/assets/images/empty-order.png" mode="aspectFit" />
+      <text>暂无订单</text>
+    </view>
+  </view>
+</view> 

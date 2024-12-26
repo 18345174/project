@@ -1,0 +1,38 @@
+<view class="container">
+  <image class="goods-image" src="{{goodsInfo.image}}" mode="aspectFill" />
+  
+  <view class="goods-info">
+    <view class="goods-name">{{goodsInfo.name}}</view>
+    <view class="goods-price">¥{{goodsInfo.price}}</view>
+    <view class="goods-desc">{{goodsInfo.description}}</view>
+  </view>
+
+  <view class="delivery-section">
+    <view class="section-title">配送方式</view>
+    <view class="delivery-options">
+      <view class="delivery-item {{deliveryType === 'self' ? 'active' : ''}}"
+            bindtap="changeDeliveryType"
+            data-type="self">
+        自提
+      </view>
+      <view class="delivery-item {{deliveryType === 'delivery' ? 'active' : ''}}"
+            bindtap="changeDeliveryType"
+            data-type="delivery">
+        配送
+      </view>
+    </view>
+  </view>
+
+  <view class="quantity-section">
+    <view class="section-title">数量</view>
+    <view class="quantity-control">
+      <view class="btn" bindtap="changeQuantity" data-type="minus">-</view>
+      <view class="number">{{quantity}}</view>
+      <view class="btn" bindtap="changeQuantity" data-type="plus">+</view>
+    </view>
+  </view>
+
+  <view class="bottom-bar">
+    <button class="add-cart-btn" bindtap="addToCart">加入购物车</button>
+  </view>
+</view> 

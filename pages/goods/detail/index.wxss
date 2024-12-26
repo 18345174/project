@@ -1,0 +1,97 @@
+.container {
+  padding-bottom: 100rpx;
+}
+
+.goods-image {
+  width: 100%;
+  height: 750rpx;
+}
+
+.goods-info {
+  padding: 30rpx;
+  background: #fff;
+}
+
+.goods-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.goods-price {
+  font-size: 36rpx;
+  color: #e4393c;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.goods-desc {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.5;
+}
+
+.delivery-section,
+.quantity-section {
+  margin-top: 20rpx;
+  padding: 30rpx;
+  background: #fff;
+}
+
+.section-title {
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.delivery-options {
+  display: flex;
+  gap: 20rpx;
+}
+
+.delivery-item {
+  padding: 10rpx 30rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+}
+
+.delivery-item.active {
+  background: #1296db;
+  color: #fff;
+  border-color: #1296db;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border: 1rpx solid #ddd;
+}
+
+.number {
+  width: 80rpx;
+  text-align: center;
+  margin: 0 20rpx;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx;
+  background: #fff;
+  box-shadow: 0 -2rpx 10rpx rgba(0,0,0,0.1);
+}
+
+.add-cart-btn {
+  background: #1296db;
+  color: #fff;
+  border-radius: 40rpx;
+} 

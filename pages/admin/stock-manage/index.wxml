@@ -1,0 +1,76 @@
+<view class="container">
+  <!-- 商品信息 -->
+  <view class="goods-info" wx:if="{{goodsInfo}}">
+    <image src="{{goodsInfo.image}}" mode="aspectFill" class="goods-image" />
+    <view class="info">
+      <view class="name">{{goodsInfo.name}}</view>
+      <view class="stock">当前库存：{{goodsInfo.stock}}</view>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-bar">
+    <button class="btn" bindtap="showModal">库存操作</button>
+  </view>
+
+  <!-- 库存日志 -->
+  <view class="stock-logs">
+    <view class="title">库存记录</view>
+    <view class="log-item" wx:for="{{stockLogs}}" wx:key="_id">
+      <view class="log-info">
+        <text class="type">{{item.type === 1 ? '入库' : '出库'}}</text>
+        <text class="quantity">{{item.type === 1 ? '+' : '-'}}{{item.quantity}}</text>
+      </view>
+      <view class="log-detail">
+        <text class="time">{{item.createTime}}</text>
+        <text class="remark" wx:if="{{item.remark}}">备注：{{item.remark}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 库存操作弹窗 -->
+  <view class="modal" wx:if="{{showStockModal}}">
+    <view class="modal-mask" bindtap="hideModal"></view>
+    <view class="modal-content">
+      <view class="modal-title">库存操作</view>
+      
+      <view class="form-item">
+        <view class="label">操作类型</view>
+        <radio-group bindchange="onStockTypeChange">
+          <label class="radio">
+            <radio value="1" checked="{{stockType === 1}}" />入库
+          </label>
+          <label class="radio">
+            <radio value="-1" checked="{{stockType === -1}}" />出库
+          </label>
+        </radio-group>
+      </view>
+
+      <view class="form-item">
+        <view class="label">数量</view>
+        <input 
+          type="number"
+          placeholder="请输入数量"
+          value="{{quantity}}"
+          bindinput="onInput"
+          data-field="quantity"
+        />
+      </view>
+
+      <view class="form-item">
+        <view class="label">备注</view>
+        <textarea 
+          placeholder="请输入备注信息"
+          value="{{remark}}"
+          bindinput="onInput"
+          data-field="remark"
+        />
+      </view>
+
+      <view class="modal-footer">
+        <button class="btn cancel" bindtap="hideModal">取消</button>
+        <button class="btn confirm" bindtap="submitStock">确定</button>
+      </view>
+    </view>
+  </view>
+</view> 

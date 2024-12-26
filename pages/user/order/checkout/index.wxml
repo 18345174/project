@@ -1,0 +1,68 @@
+<view class="container">
+  <!-- 配送方式 -->
+  <view class="delivery-section">
+    <view class="section-title">配送方式</view>
+    <radio-group bindchange="onDeliveryChange">
+      <label class="radio-item">
+        <radio value="self" checked="{{deliveryType === 'self'}}" />自提
+      </label>
+      <label class="radio-item">
+        <radio value="delivery" checked="{{deliveryType === 'delivery'}}" />配送
+      </label>
+    </radio-group>
+  </view>
+
+  <!-- 收货地址 -->
+  <view class="address-section" wx:if="{{deliveryType === 'delivery'}}">
+    <view class="section-title">收货地址</view>
+    <view class="address-content" bindtap="chooseAddress">
+      <block wx:if="{{address}}">
+        <view class="address-info">
+          <view class="user-info">
+            {{address.name}} {{address.phone}}
+          </view>
+          <view class="address-detail">
+            {{address.province}}{{address.city}}{{address.district}}{{address.detail}}
+          </view>
+        </view>
+      </block>
+      <view wx:else class="no-address">
+        请选择收货地址
+      </view>
+      <view class="arrow">></view>
+    </view>
+  </view>
+
+  <!-- 商品列表 -->
+  <view class="goods-section">
+    <view class="section-title">商品信息</view>
+    <view class="goods-list">
+      <view class="goods-item" wx:for="{{orderItems}}" wx:key="_id">
+        <image src="{{item.image}}" mode="aspectFill" class="goods-image" />
+        <view class="goods-info">
+          <view class="goods-name">{{item.name}}</view>
+          <view class="goods-price">¥{{item.price}}</view>
+          <view class="goods-quantity">x{{item.quantity}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 备注 -->
+  <view class="remark-section">
+    <view class="section-title">备注</view>
+    <textarea 
+      placeholder="请输入备注信息" 
+      bindinput="onRemarkInput"
+      value="{{remark}}"
+    />
+  </view>
+
+  <!-- 底部结算栏 -->
+  <view class="bottom-bar">
+    <view class="total-price">
+      合计：<text class="price">¥{{totalPrice}}</text>
+    </view>
+    <button class="submit-btn" bindtap="submitOrder">提交订单</button>
+  </view>
+</view> 

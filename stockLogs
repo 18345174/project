@@ -1,0 +1,9 @@
+{
+  "_id": "string",
+  "goodsId": "string",
+  "type": "number",  // 1: 入库, -1: 出库
+  "quantity": "number",
+  "remark": "string",
+  "operator": "string",
+  "createTime": "date"
+} 

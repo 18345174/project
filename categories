@@ -1,0 +1,7 @@
+{
+  "_id": "string",
+  "name": "string",
+  "icon": "string",
+  "sort": "number",
+  "createTime": "date"
+} 

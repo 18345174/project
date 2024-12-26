@@ -1,0 +1,66 @@
+<view class="container">
+  <view class="form">
+    <view class="form-item">
+      <view class="label">商品名称</view>
+      <input 
+        type="text"
+        placeholder="请输入商品名称"
+        value="{{name}}"
+        bindinput="onInput"
+        data-field="name"
+      />
+    </view>
+
+    <view class="form-item">
+      <view class="label">商品价格</view>
+      <input 
+        type="digit"
+        placeholder="请输入商品价格"
+        value="{{price}}"
+        bindinput="onInput"
+        data-field="price"
+      />
+    </view>
+
+    <view class="form-item">
+      <view class="label">商品库存</view>
+      <input 
+        type="number"
+        placeholder="请输入商品库存"
+        value="{{stock}}"
+        bindinput="onInput"
+        data-field="stock"
+      />
+    </view>
+
+    <view class="form-item">
+      <view class="label">商品描述</view>
+      <textarea 
+        placeholder="请输入商品描述"
+        value="{{description}}"
+        bindinput="onInput"
+        data-field="description"
+      />
+    </view>
+
+    <view class="form-item">
+      <view class="label">商品图片</view>
+      <view class="image-upload" bindtap="chooseImage">
+        <image 
+          wx:if="{{image}}" 
+          src="{{image}}" 
+          mode="aspectFill" 
+          class="preview-image"
+        />
+        <view wx:else class="upload-placeholder">
+          <text class="iconfont icon-add"></text>
+          <text>上传图片</text>
+        </view>
+      </view>
+    </view>
+
+    <button class="submit-btn" bindtap="submitForm">
+      {{isEdit ? '保存修改' : '添加商品'}}
+    </button>
+  </view>
+</view> 

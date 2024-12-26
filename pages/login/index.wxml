@@ -1,0 +1,20 @@
+<view class="login-container">
+  <view class="login-form">
+    <view class="form-item">
+      <input type="number" 
+             placeholder="请输入手机号" 
+             bindinput="onPhoneInput"
+             value="{{phone}}" />
+    </view>
+    <view class="form-item">
+      <input type="password" 
+             placeholder="请输入密码" 
+             bindinput="onPasswordInput"
+             value="{{password}}" />
+    </view>
+    <button class="login-btn" bindtap="handleLogin">登录</button>
+    <navigator url="/pages/admin/admin-login/index" class="admin-link">
+      管理员登录
+    </navigator>
+  </view>
+</view> 

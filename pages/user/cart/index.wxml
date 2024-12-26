@@ -1,0 +1,48 @@
+<view class="container">
+  <block wx:if="{{cartList.length > 0}}">
+    <view class="cart-list">
+      <view class="cart-item" wx:for="{{cartList}}" wx:key="_id">
+        <view class="checkbox" bindtap="onSelectItem" data-id="{{item._id}}">
+          <icon type="success" size="20" color="{{selectedIds.includes(item._id) ? '#1296db' : '#999'}}" />
+        </view>
+        
+        <image class="goods-image" src="{{item.image}}" mode="aspectFill" />
+        
+        <view class="goods-info">
+          <view class="goods-name">{{item.name}}</view>
+          <view class="goods-price">¥{{item.price}}</view>
+          <view class="quantity-control">
+            <view class="btn" 
+                  bindtap="changeQuantity" 
+                  data-id="{{item._id}}"
+                  data-type="minus">-</view>
+            <view class="number">{{item.quantity}}</view>
+            <view class="btn"
+                  bindtap="changeQuantity"
+                  data-id="{{item._id}}"
+                  data-type="plus">+</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="bottom-bar">
+      <view class="select-all" bindtap="onSelectAll">
+        <icon type="success" size="20" color="{{isSelectAll ? '#1296db' : '#999'}}" />
+        <text>全选</text>
+      </view>
+      
+      <view class="total-info">
+        <text>合计：</text>
+        <text class="price">¥{{totalPrice}}</text>
+      </view>
+      
+      <button class="checkout-btn" bindtap="checkout">结算</button>
+    </view>
+  </block>
+
+  <view wx:else class="empty-cart">
+    <image src="/assets/images/empty-cart.png" mode="aspectFit" />
+    <text>购物车是空的</text>
+  </view>
+</view> 
